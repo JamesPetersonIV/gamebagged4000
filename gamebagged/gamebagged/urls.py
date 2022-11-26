@@ -25,5 +25,6 @@ urlpatterns = [
 
     #path add
     path('', include('accounts.urls')),
+    path('', include('bagger.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

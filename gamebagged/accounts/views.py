@@ -82,6 +82,7 @@ class PlaceOrder(View):
 
     def post(self, request, *args, **kwargs):
         customer = request.POST.get('customer')
+        
 
         order_items = {
             'items': []
@@ -141,5 +142,9 @@ def cusupdateOrder(request, pk):
 
 def cuscancelOrder(request, pk):
     order = OrderPro.objects.get(id=pk)
+
+    if request.method == "POST":
+        order.delete()
+        return redirect('/')
     context = {'item':order}
     return render(request, 'accounts/cancel_order.html', context)

@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-
 # Create your models here.
 #represent database tables
 
@@ -80,15 +79,13 @@ class OrderPro(models.Model):
     items = models.ManyToManyField(Product, verbose_name='product', blank=True)
     #will be able to select from contents in STATUS
     status = models.CharField(max_length=200, default='Pending', blank=True , choices=STATUS)
-    customer = models.ForeignKey(User, verbose_name='user', null = True, on_delete=models.SET_NULL)
+    customer = models.ForeignKey(User, verbose_name='customer', null = True, on_delete=models.SET_NULL)
+    bagger = models.OneToOneField(User, null=True, related_name='bagger', on_delete=models.SET_NULL)
     
     class Meta:
         ordering = ('created_on',)
 
 
-class BaggerDelivery(models.Model):
-    bagger = models.ForeignKey(User, verbose_name='user', null = True, on_delete=models.SET_NULL)
-    order = models.ForeignKey(OrderPro, null = True, on_delete=models.SET_NULL)
-    accepted_on = models.DateTimeField(auto_now_add=True, null=True)
+
 #user pk >> profile 
 #profile fk >> customer pk/ profile fk >> bagger
