@@ -1,0 +1,33 @@
+{% extends 'accounts/base.html'   %} 
+
+
+<!--content block-->
+{% block content %}
+
+
+<!--Each pages indivdual code-->
+<div class="container mb-5">
+    <div class="pt-5">
+        {% for g in systems %}
+        <h1>{{g.category}}</h1>
+        <div class="row mt-4">
+            <div class="col-md-2 col-sm-12">
+                <img class="rounded" src="{{ g.img.url }}" width="150" height="100"/>
+            </div>
+            <div class="col-md-8 col-sm-12">
+                <div class="d-flex flex-row">
+                    <div class="form-group">
+                        <label >{{ g.name }}</label>
+                    </div>
+                    <p class="font-weight-bold pl-5">&nbsp;{{ g.price }}</p>
+                </div>
+                <p>{{ g.description }}</p>
+            </div>
+        </div>
+        <hr />
+        {% endfor %}
+    </div>
+</div>
+
+<!--endblock content-->
+{% endblock content %}

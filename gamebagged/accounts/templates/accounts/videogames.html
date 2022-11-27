@@ -1,0 +1,33 @@
+{% extends 'accounts/base.html'   %} 
+
+
+<!--content block-->
+{% block content %}
+
+
+<!--Each pages indivdual code-->
+<div class="container mb-5">
+    <div class="pt-5">
+        {% for vg in vgs %}
+        <h1>{{vg.category}}</h1>
+        <div class="row mt-4">
+            <div class="col-md-2 col-sm-12">
+                <img class="rounded" src="{{ vg.img.url }}" width="150" height="100"/>
+            </div>
+            <div class="col-md-8 col-sm-12">
+                <div class="d-flex flex-row">
+                    <div class="form-group">
+                        <label >{{ vg.name }}</label>
+                    </div>
+                    <p class="font-weight-bold pl-5">&nbsp;{{ vg.price }}</p>
+                </div>
+                <p>{{ vg.description }}</p>
+            </div>
+        </div>
+        <hr />
+        {% endfor %}
+    </div>
+</div>
+
+<!--endblock content-->
+{% endblock content %}
