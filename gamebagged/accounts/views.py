@@ -7,36 +7,17 @@ from .models import *
 from .forms import OrderProForm, CustomerOrderUpdateForm
 #email
 from django.core.mail import send_mail
+#
+from django.contrib.auth.decorators import login_required
 
-def home(request):
-    #all orders query
-    orders = OrderPro.objects.all()
-    #all customer query
-    customers = User.objects.all()
-    #total up customers
-    total_customers = customers.count()
-    #total orders
-    total_orders = orders.count
-    #delivered filter
-    delievered = orders.filter(status='Delivered').count()
-    #pending orders filter
-    pending = orders.filter(status='Pending').count()
-    context = {'orders':orders,
-                'customers':customers,
-                'total_customers':total_customers,
-                'total_orders' : total_orders,
-                'delievered' : delievered,
-                'pending' : pending
-            }
-
-    return render(request, 'accounts/dashboard.html', context)
-
+@login_required(login_url='account_login')
 def products(request):
     #all products query
     products = Product.objects.all()
     context = {'products':products}
     return render(request, 'accounts/products.html', context)
 
+@login_required(login_url='account_login')
 def customer(request, pk):
     customer= OrderPro.objects.get(pk=pk)
 
@@ -44,7 +25,7 @@ def customer(request, pk):
     #query customer child object
     #from models field
     #orders
-    orders = OrderPro.objects.filter(pk=pk)
+    orders = OrderPro.objects.filter(customer=pk)
 
     #count the orders
     orderpro_count = orders.count()
@@ -126,6 +107,8 @@ class PlaceOrder(View):
 
         return render(request, 'accounts/orderconfirm.html', context)
 
+
+@login_required(login_url='account_login')
 def cusupdateOrder(request, pk):
     order = OrderPro.objects.get(id=pk)
     form = CustomerOrderUpdateForm(instance=order)
@@ -140,6 +123,7 @@ def cusupdateOrder(request, pk):
     return render(request, 'accounts/order_form.html', context)
 
 
+@login_required(login_url='account_login')
 def cuscancelOrder(request, pk):
     order = OrderPro.objects.get(id=pk)
 

@@ -7,15 +7,15 @@
 <br>
 
 <div class="row">
-	<div class="col-md">
+	<!--<div class="col-md">
 		<div class="card card-body">
-			<!--<h5>Bagger:</h5>
+			<h5>Bagger:</h5>
 			<hr>
 			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Customer</a>
-			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Customer</a>-->
+			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Customer</a>
 
 		</div>
-	</div>
+	</div>-->
 
 	<div class="col-md">
 		<div class="card card-body">
@@ -27,9 +27,9 @@
 
 	<div class="col-md">
 		<div class="card card-body">
-			<!--<h5>Total Orders</h5>
+			<h5>Total Orders</h5>
 			<hr>
-			<h1 style="text-align: center;padding: 10px"></h1>-->
+			<h1 style="text-align: center;padding: 10px">{{delievered}}</h1>
 		</div>
 	</div>
 </div>
@@ -58,7 +58,7 @@
 					<th>Date Orderd</th>
                     <th>bagger</th>
 					<th>Status</th>
-					<th>Accept</th>
+					<th>Update</th>
 				</tr>
 				
 				<!--order info-->
@@ -69,7 +69,7 @@
                         <td>{{order.bagger}}</td>
 						<td>{{order.status}}</td>
 						<!--Buttons-->
-						<td><a class="btn btn-sm btn-info" href="{% url 'bagger_order' order.id %}">Accept</a></td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'baggeru_order' order.id %}">Update</a></td>
 					</tr>
 				
 				{% endfor %}

@@ -80,7 +80,7 @@ class OrderPro(models.Model):
     #will be able to select from contents in STATUS
     status = models.CharField(max_length=200, default='Pending', blank=True , choices=STATUS)
     customer = models.ForeignKey(User, verbose_name='customer', null = True, on_delete=models.SET_NULL)
-    bagger = models.OneToOneField(User, null=True, related_name='bagger', on_delete=models.SET_NULL)
+    bagger = models.ForeignKey(User, null=True, related_name='bagger', on_delete=models.SET_NULL)
     
     class Meta:
         ordering = ('created_on',)

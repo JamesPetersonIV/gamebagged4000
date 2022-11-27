@@ -7,11 +7,13 @@ from django.views import View
 #For models queries
 from accounts.models import *
 #forms
-from .forms import BaggerOrderUpdateForm
+from .forms import BaggerOrderAcceptForm, BaggerOrderUpdateForm 
 #email
 from django.core.mail import send_mail
+#
+from django.contrib.auth.decorators import login_required
 
-
+@login_required(login_url='account_login')
 def bagger(request, pk):
     bagger= User.objects.get(pk=pk)
 
@@ -48,6 +50,53 @@ def bagger(request, pk):
     return render(request, 'bagger/bagger.html', context)
 
 
+@login_required(login_url='account_login')
+def bagacceptOrder(request, pk):
+    order = OrderPro.objects.get(id=pk)
+
+    form = BaggerOrderAcceptForm(instance=order)
+
+    if request.method =='POST':
+        form = BaggerOrderAcceptForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+
+    context = {'form':form}
+
+    return render(request, 'bagger/bagger_form.html', context)
+
+
+@login_required(login_url='account_login')
+def bagcancelOrder(request, pk):
+    order = OrderPro.objects.get(id=pk)
+
+    if request.method == "POST":
+        order.delete()
+        return redirect('baghome/')
+    context = {'item':order}
+    return render(request, 'bagger/cancel_order.html', context)
+
+
+@login_required(login_url='account_login')
+def baggerhome(request, pk):
+
+    
+    bagger = OrderPro.objects.get(pk=pk)
+    orders = OrderPro.objects.filter(bagger=pk)
+    #delivered filter
+    delievered = orders.filter(status='Delivered').count()
+    
+    context = {
+                'orders':orders,
+                'bagger':bagger,
+                'delievered' : delievered,
+            }
+            
+    return render(request, 'bagger/baghome.html', context)
+
+
+@login_required(login_url='account_login')
 def bagupdateOrder(request, pk):
     order = OrderPro.objects.get(id=pk)
 
@@ -61,30 +110,4 @@ def bagupdateOrder(request, pk):
 
     context = {'form':form}
 
-    return render(request, 'bagger/bagger_form.html', context)
-
-
-def bagcancelOrder(request, pk):
-    order = OrderPro.objects.get(id=pk)
-
-    if request.method == "POST":
-        order.delete()
-        return redirect('/')
-    context = {'item':order}
-    return render(request, 'bagger/cancel_order.html', context)
-
-
-def baggerhome(request, pk):
-
-    #all orders query
-    bagger = OrderPro.objects.get(pk=pk)
-    orders = OrderPro.objects.filter(pk=pk)
-
-    
-
-    context = {'orders':orders,
-                'bagger':bagger,
-                
-            }
-            
-    return render(request, 'bagger/baghome.html', context)
+    return render(request, 'bagger/baggeru_form.html', context)

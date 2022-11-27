@@ -1,0 +1,68 @@
+{% extends 'admininterface/base.html'   %} 
+
+{% block content  %}
+
+{% load static %}
+
+<div class="container-fluid text-center" style="background-color:#a1acb4">
+	<div class="row">
+        <br>
+    		<br>
+        <br>
+     </div>
+
+    <div class="row">
+  	<div class="col" style="background-color:#c4c4c4">
+		<p style="font-size:18px; color: #2e6db4; font-family:'Brush Script MT', cursive;">
+            	Tired of waiting in line for the new/gadgets in stores?
+        	</p>
+        	<p style="font-size: 30px; color: #df0024;font-family:'Brush Script MT', cursive;">
+            	Wait no more!
+           </p>
+    	</div>
+
+    	<div class="col" style="background-color:#c4c4c4">
+      	<img src="{% static 'images/GBLogo.png' %}" alt="logo here" height="176px" width="204px">
+
+      	<p style="font-size: 30px; font-family:'Brush Script MT', cursive; color: #df0024;"00->
+           		Got your back!
+       	</p>
+    </div>
+
+   <div  class="row">
+   		<div class="col">
+            <a href="{% url 'account_login' %}" class="btn btn-outline-success">Login</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-outline-warning"> Register</a>
+      </div>
+    </div>
+		
+   <div class="row">
+   		<p class="fs-1 text-uppercase fw-bolder" style="font-family:'Brush Script MT', cursive; color: #2e6db4;"> Creators <p>
+   </div>
+   
+   <div  class="row">
+   		<div class="col">
+    		<img src="{% static 'images/JamesHS.jpg' %}"  class="rounded-circle" alt="James" width="200" height="200">
+            <h6>James Peterson IV</h6>
+        </div>
+        
+        <div class="col">
+    		<img src="{% static 'images/kamari_image.jpg' %}"  class="rounded-circle" alt="Kamari" width="200" height="200">
+            <h6>Kamari J. Williams</h6>
+        </div>
+        
+        <div class="col">
+    		<img src="{% static 'images/Brenden_image1.jpg' %}"  class="rounded-circle" alt="Brenden" width="200" height="200">
+            <h6>Brenden Driver</h6>
+        </div>
+        
+        <div class="col">
+    		<img src="{% static 'images/IMG_3683.jpg' %}"  class="rounded-circle" alt="Nehemie" width="200" height="200">
+            <h6>Nehemie Augustin</h6>
+        </div>
+   </div>
+   
+  </div>
+</div>
+
+{% endblock content  %}
