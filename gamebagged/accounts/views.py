@@ -19,21 +19,13 @@ def products(request):
 
 @login_required(login_url='account_login')
 def customer(request, pk):
-    customer= OrderPro.objects.get(pk=pk)
-
+    customer = User.objects.all()
+    #all orders query
+    orders = OrderPro.objects.all()
     
-    #query customer child object
-    #from models field
-    #orders
-    orders = OrderPro.objects.filter(customer=pk)
-
-    #count the orders
-    orderpro_count = orders.count()
-
     context={
         'customer':customer,
         'orders' : orders,
-        'orderpro_count' : orderpro_count,
     }
     return render(request, 'accounts/customer.html', context)
 
@@ -132,3 +124,38 @@ def cuscancelOrder(request, pk):
         return redirect('/')
     context = {'item':order}
     return render(request, 'accounts/cancel_order.html', context)
+
+
+#################################################################
+class Phones(View):
+    def get(self, request, *args, **kwargs):
+        phones = Product.objects.filter(category__contains='Mobile Phones')
+        context = {'phones':phones}
+        return render(request, 'accounts/mobilephones.html', context)
+
+class Phones(View):
+    def get(self, request, *args, **kwargs):
+        phones = Product.objects.filter(category__contains='Mobile Phones')
+        context = {'phones':phones}
+        return render(request, 'accounts/mobilephones.html', context)
+
+
+class Accessories(View):
+    def get(self, request, *args, **kwargs):
+        accs = Product.objects.filter(category__contains='Accessories')
+        context = {'accs':accs}
+        return render(request, 'accounts/accessories.html', context)
+
+
+class Consoles(View):
+    def get(self, request, *args, **kwargs):
+        systems = Product.objects.filter(category__contains='Consoles')
+        context = {'systems':systems}
+        return render(request, 'accounts/consoles.html', context)
+
+
+class VideoGames(View):
+    def get(self, request, *args, **kwargs):
+        vgs = Product.objects.filter(category__contains='Video Games')
+        context = {'vgs':vgs}
+        return render(request, 'accounts/videogames.html', context)

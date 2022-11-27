@@ -3,7 +3,7 @@
 <!--content block-->
 {% block content %}
 
-{% include 'accounts/status.html' %}
+{% include 'bagger/status.html' %}
 <br>
 
 <div class="row">
@@ -21,7 +21,7 @@
 				<!--Customer info-->
 				{% for customer in customers %}
 					<tr>
-						<td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.id %}">View</a></td>
+						<td><a class="btn btn-sm btn-info" href="#">View</a></td>
 						<td>{{customer.username}}</td>
 					</tr>
 				

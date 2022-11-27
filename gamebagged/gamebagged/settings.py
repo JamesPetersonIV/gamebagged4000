@@ -85,6 +85,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'gamebagged.wsgi.application'
 
+ASGI_APPLICATION = 'gamebagged.asgi.application'
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -153,7 +155,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #Fix account/login error
-LOGIN_REDIRECT_URL = ''
+LOGIN_REDIRECT_URL = 'index'
 
 #CRISPY
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
