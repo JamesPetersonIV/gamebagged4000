@@ -80,7 +80,7 @@
                         <div class="col-md-8 col-sm-12">
                             <div class="d-flex flex-row">
                                 <div class="form-group form-check">
-                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ drink.pk }}">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ vg.pk }}">
                                     <label class="form-check-label">{{ vg.name }}</label>
                                 </div>
                                 <p class="font-weight-bold pl-5">&nbsp;{{ vg.price }}</p>
@@ -119,4 +119,24 @@
         </div>
     </div>
 </div>
+<footer>
+	<!-- Just an image -->
+	<div class="position-relative">
+		<div class="position-absolute top-0 start-0">
+			<a class="btn btn" style="color: #F3C300;" href="{% url 'index' %}">
+				<i class="bi bi-house-fill"></i>
+			</a>
+		</div>
+		<div class="position-absolute top-0 end-50 ">
+			<a class="btn btn" style="color: #00AC9F;" href="{% url 'order' %}">
+				<i class="bi bi-car-front-fill"></i>
+			</a>
+		</div>
+		<div class="position-absolute top-0 end-0">
+			<a class="btn btn" style="color: #df0024;" href="{% url 'customer' user.username %}">
+				<i class="bi bi-pass-fill"></i>
+			</a>
+		</div>
+	</div>
+</footer>
 {% endblock content %}

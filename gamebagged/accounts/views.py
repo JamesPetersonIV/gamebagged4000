@@ -159,3 +159,4 @@ class VideoGames(View):
         vgs = Product.objects.filter(category__contains='Video Games')
         context = {'vgs':vgs}
         return render(request, 'accounts/videogames.html', context)
+

@@ -80,14 +80,15 @@ def bagcancelOrder(request, pk):
 
 @login_required(login_url='account_login')
 def baggerhome(request, pk):
-
-    
-    bagger = OrderPro.objects.get(pk=pk)
+    user = User.objects.get(pk=pk)
+    #bagger = OrderPro.objects.get(pk=pk)
+    bagger = getOrderIfOrderExistForCurrentBagger(pk)
     orders = OrderPro.objects.filter(bagger=pk)
     #delivered filter
     delievered = orders.filter(status='Delivered').count()
     
     context = {
+                'user':user,
                 'orders':orders,
                 'bagger':bagger,
                 'delievered' : delievered,
@@ -111,3 +112,11 @@ def bagupdateOrder(request, pk):
     context = {'form':form}
 
     return render(request, 'bagger/baggeru_form.html', context)
+
+
+
+def getOrderIfOrderExistForCurrentBagger(pk):
+    try:
+        return OrderPro.objects.get(pk=pk)
+    except OrderPro.DoesNotExist:
+        return None

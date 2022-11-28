@@ -1,5 +1,7 @@
 {% extends 'accounts/base.html'   %} 
 
+{%load static%}
+
 <!--content block-->
 {% block content %}
 
@@ -9,10 +11,12 @@
 <div class="row">
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Customer:</h5>
+			<h5>Products:</h5>
 			<hr>
-			<a class="btn btn-outline-info  btn-sm btn-block" href="">Update Customer</a>
-			<a class="btn btn-outline-danger  btn-sm btn-block" href="">Delete Customer</a>
+			<a class="btn btn-outline-warning  btn-sm btn-block" style="color: #F3C300;" href="{% url 'games' %}">Video Games</a>
+			<a class="btn btn-outline-success  btn-sm btn-block" style="color: #00AC9F;" href="{% url 'cons' %}">Gaming Consoles</a>
+			<a class="btn btn-outline-danger  btn-sm btn-block" style="color: #df0024;" href="{% url 'mps' %}">Mobile Phones</a>
+			<a class="btn btn-outline-primary  btn-sm btn-block" style="color: #2e6db4;" href="{% url 'accs' %}">Accessories</a>
 
 		</div>
 	</div>
@@ -75,6 +79,28 @@
 		</div>
 	</div>
 </div>
+
+
+<footer>
+	<!-- Just an image -->
+	<div class="position-relative">
+		<div class="position-absolute top-0 start-0">
+			<a class="btn btn" style="color: #F3C300;" href="{% url 'index' %}">
+				<i class="bi bi-house-fill"></i>
+			</a>
+		</div>
+		<div class="position-absolute top-0 end-50 ">
+			<a class="btn btn" style="color: #00AC9F;" href="{% url 'order' %}">
+				<i class="bi bi-car-front-fill"></i>
+			</a>
+		</div>
+		<div class="position-absolute top-0 end-0">
+			<a class="btn btn" style="color: #df0024;" href="{% url 'customer' user.username %}">
+				<i class="bi bi-pass-fill"></i>
+			</a>
+		</div>
+	</div>
+</footer>
    
 <!--endblock content-->
 {% endblock content %}
