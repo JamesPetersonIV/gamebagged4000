@@ -58,13 +58,14 @@ class PlaceOrder(View):
 
     def post(self, request, *args, **kwargs):
         
-        
-        customer = User.objects.all()
-        form = OrderProForm(initial={'customer':customer})
-        if request.method == 'POST':
-            form = OrderProForm(request.POST)
-            if form.is_valid():
-                form.save()
+        form = OrderProForm(request.POST)
+        customer = request.POST.get('customer')
+        #customer = User.objects.all()
+        #form = OrderProForm(initial={'customer':customer})
+        #if request.method == 'POST':
+            #form = OrderProForm(request.POST)
+            #if form.is_valid():
+                #form.save()
 
         order_items = {
             'items': []
@@ -96,6 +97,7 @@ class PlaceOrder(View):
 
         order = OrderPro.objects.create(
             price=price,
+            customer_id=customer,
             )
 
         order.items.add(*item_ids)
