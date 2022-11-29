@@ -19,13 +19,16 @@ def products(request):
 
 @login_required(login_url='account_login')
 def customer(request, pk):
-    customer = User.objects.all()
     #all orders query
-    orders = OrderPro.objects.all()
-    
+    #orders = OrderPro.objects.all()
+    customer = User.objects.get(pk=pk)
+    #customer = getOrderIfOrderExistForCurrentCustomer(pk)
+    orders = OrderPro.objects.filter(customer=pk)
+    ordercount = orders.filter(status='Delivered').count()
     context={
         'customer':customer,
         'orders' : orders,
+        'ordercount' : ordercount,
     }
     return render(request, 'accounts/customer.html', context)
 
@@ -54,8 +57,14 @@ class PlaceOrder(View):
         return render(request, 'accounts/order.html', context)
 
     def post(self, request, *args, **kwargs):
-        customer = request.POST.get('customer')
         
+        
+        customer = User.objects.all()
+        form = OrderProForm(initial={'customer':customer})
+        if request.method == 'POST':
+            form = OrderProForm(request.POST)
+            if form.is_valid():
+                form.save()
 
         order_items = {
             'items': []
@@ -94,7 +103,7 @@ class PlaceOrder(View):
         context = {
             'items' : order_items['items'],
             'price' : price,
-            'customer' : customer,
+            'form':form,
         }
 
         return render(request, 'accounts/orderconfirm.html', context)
@@ -160,3 +169,8 @@ class VideoGames(View):
         context = {'vgs':vgs}
         return render(request, 'accounts/videogames.html', context)
 
+def getOrderIfOrderExistForCurrentCustomer(pk):
+    try:
+        return OrderPro.objects.get(pk=pk)
+    except OrderPro.DoesNotExist:
+        return None

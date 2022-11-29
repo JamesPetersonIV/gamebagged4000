@@ -23,9 +23,9 @@
 
 	<div class="col-md">
 		<div class="card card-body">
-			<h5>Contact Information</h5>
+			<h5>Customer</h5>
 			<hr>
-			<p>Username:{{user.username}} </p>
+			<p><i class="bi bi-person-fill"></i>{{user.username}} </p>
 		</div>
 	</div>
 
@@ -33,7 +33,7 @@
 		<div class="card card-body">
 			<h5>Total Orders</h5>
 			<hr>
-			<h1 style="text-align: center;padding: 10px"></h1>
+			<h1 style="text-align: center;padding: 10px">{{ordercount}}</h1>
 		</div>
 	</div>
 </div>
@@ -58,18 +58,20 @@
 		<div class="card card-body">
 			<table class="table table-sm">
 				<tr>
-					<th>Product</th>
-					<th>Date Orderd</th>
+					<th>Order</th>
+					<th>Date Ordered</th>
 					<th>Status</th>
+					<th>Bagger</th>
 					<th>Update</th>
 					<th>Cancel</th>
 				</tr>
 
 				{% for order in orders %}
 				<tr>
-					<td>{{order.items}}</td>
+					<td>{{order.pk}}</td>
 					<td>{{order.created_on}}</td>
 					<td>{{order.status}}</td>
+					<td>{{order.bagger}}</td>
 					<td><a href="{% url 'update_order' order.id %}" class="btn btn-sm btn-info ">Update</a></td>
 					<td><a href="{% url 'cancel_order' order.id %}" class="btn btn-sm btn-danger">Cancel</a></td>
 				</tr>
@@ -95,7 +97,7 @@
 			</a>
 		</div>
 		<div class="position-absolute top-0 end-0">
-			<a class="btn btn" style="color: #df0024;" href="{% url 'customer' user.username %}">
+			<a class="btn btn" style="color: #df0024;" href="{% url 'customer' user.pk %}">
 				<i class="bi bi-pass-fill"></i>
 			</a>
 		</div>

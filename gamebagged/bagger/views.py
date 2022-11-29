@@ -87,6 +87,7 @@ def baggerhome(request, pk):
     #delivered filter
     delievered = orders.filter(status='Delivered').count()
     
+
     context = {
                 'user':user,
                 'orders':orders,
@@ -107,7 +108,7 @@ def bagupdateOrder(request, pk):
         form = BaggerOrderUpdateForm(request.POST, instance=order)
         if form.is_valid():
             form.save()
-            return redirect('bagger/')
+            return redirect('/')
 
     context = {'form':form}
 
