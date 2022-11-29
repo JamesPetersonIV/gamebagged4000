@@ -7,14 +7,17 @@
 <br>
 <div class="container">
     <div class="row">
-        <h3>Chat</h3>
+        <div class="col-md-12 p-5">
+            <a href="{% url 'chat' %}" class="btn btn-light">Back</a>
+            <h3 style="color: #2E6DB4;">Chat</h3>
+        </div>
     </div>
     <div class="row">
         <div class="card col-md-12 mt-5 p-3 shadow-sm">
             {% if thread.receiver == request.user %}
-                <h5>@{{ thread.user }}</h5>
+                <h5><i class="bi bi-person-fill"></i>{{ thread.user }}</h5>
             {% else %}
-                <h5>@{{ thread.receiver }}</h5>
+                <h5><i class="bi bi-person-fill"></i>{{ thread.receiver }}</h5>
             {% endif %}
         </div>
     </div>
@@ -31,11 +34,11 @@
     <div class="row">
         <div class="col-md-12 my-1">
             {% if message.sender_user == request.user %}
-                <div class="sent-message my-3" style="background-color: rebeccapurple; border-radius: 30px; padding: 10px 25px; width: 25%;">
+                <div class="sent-message my-3" style="background-color: #00AC9F; border-radius: 30px; padding: 10px 25px; width: 25%;">
                     <p>{{ message.body }}</p>
                 </div>
             {% elif message.receiver_user == request.user %}
-                <div class="received-message my-3" style="background-color: orange; border-radius: 30px; padding: 10px 25px; width: 25%; float: right;">
+                <div class="received-message my-3" style="background-color: #F3C300; border-radius: 30px; padding: 10px 25px; width: 25%; float: right;">
                     <p>{{ message.body }}</p>
                 </div>
             {% endif %}
