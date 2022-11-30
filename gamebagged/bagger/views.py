@@ -12,8 +12,11 @@ from .forms import BaggerOrderAcceptForm, BaggerOrderUpdateForm
 from django.core.mail import send_mail
 #
 from django.contrib.auth.decorators import login_required
+from .decorators import allowed_users
 
 @login_required(login_url='account_login')
+#bagger
+@allowed_users(allowed_roles=['baggers'])
 def bagger(request, pk):
     bagger= User.objects.get(pk=pk)
 
@@ -79,6 +82,7 @@ def bagcancelOrder(request, pk):
 
 
 @login_required(login_url='account_login')
+@allowed_users(allowed_roles=['baggers'])
 def baggerhome(request, pk):
     user = User.objects.get(pk=pk)
     #bagger = OrderPro.objects.get(pk=pk)
