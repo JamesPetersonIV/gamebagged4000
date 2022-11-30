@@ -9,6 +9,7 @@ from .forms import OrderProForm, CustomerOrderUpdateForm
 from django.core.mail import send_mail
 #
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 @login_required(login_url='account_login')
 def products(request):
@@ -32,7 +33,7 @@ def customer(request, pk):
     }
     return render(request, 'accounts/customer.html', context)
 
-class PlaceOrder(View):
+class PlaceOrder(LoginRequiredMixin,View):
     def get(self, request,  *args, **kwargs):
         #get every item from each category
         vgs = Product.objects.filter(category__contains='Video Games')

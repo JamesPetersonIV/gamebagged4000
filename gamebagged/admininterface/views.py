@@ -9,12 +9,15 @@ from .models import ThreadModel, MessageModel
 from django.db.models import Q
 #email
 from django.core.mail import send_mail
-#
+#login auth
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.mixins import LoginRequiredMixin
+#
+from bagger.decorators import allowed_users
 
 #send to login url
 @login_required(login_url='account_login')
+@allowed_users(allowed_roles=['admins'])
 def home(request):
     #all orders query
     orders = OrderPro.objects.all()
@@ -28,9 +31,7 @@ def home(request):
     delievered = orders.filter(status='Delivered').count()
     #pending orders filter
     pending = orders.filter(status='Pending').count()
-    #Category sales 
-
-
+    #delieveries by driver
     context = {
                 'orders':orders,
                 'customers':customers,
@@ -42,13 +43,13 @@ def home(request):
 
     return render(request, 'admininterface/dashboard.html', context)
 
-
+###view login
 class Index(View):
     def get(self, request, *args, **kwargs):
         return render(request, 'admininterface/index.html')
 
 
-class ListThreads(View):
+class ListThreads(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         #show thread to both users using filter
         threads = ThreadModel.objects.filter(Q(user=request.user) | Q(receiver=request.user))
@@ -59,7 +60,7 @@ class ListThreads(View):
 
         return render(request, 'admininterface/chat.html', context)
 
-class CreateThread(View):
+class CreateThread(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         form = ThreadForm()
 
@@ -100,7 +101,7 @@ class CreateThread(View):
         except:
             return redirect('create-thread')
 
-class ThreadView(View):
+class ThreadView(LoginRequiredMixin,View):
     def get(self, request, pk, *args, **kwargs):
         form = ChatForm()
         thread = ThreadModel.objects.get(pk=pk)
@@ -114,7 +115,7 @@ class ThreadView(View):
 
         return render(request, 'admininterface/thread.html', context)
 
-class CreateMessage(View):
+class CreateMessage(LoginRequiredMixin,View):
     def post(self, request, pk, *args, **kwargs):
         #get thread from url
         thread = ThreadModel.objects.get(pk=pk)
