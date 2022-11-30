@@ -85,20 +85,26 @@
 
 <footer>
 	<!-- Just an image -->
-	<div class="position-relative">
-		<div class="position-absolute top-0 start-0">
-			<a class="btn btn" style="color: #F3C300;" href="{% url 'index' %}">
-				<i class="bi bi-house-fill"></i>
+	<!-- Just an image -->
+	<div class="row justify-content-md-center">
+		<div class="col-lg-2">
+			<a class="btn btn" style="color: #df0024;" href="{% url 'customer' user.pk %}">
+				<i class="bi bi-pass-fill"></i>
 			</a>
 		</div>
-		<div class="position-absolute top-0 end-50 ">
+		<div class="col-lg-2">
 			<a class="btn btn" style="color: #00AC9F;" href="{% url 'order' %}">
 				<i class="bi bi-car-front-fill"></i>
 			</a>
 		</div>
-		<div class="position-absolute top-0 end-0">
-			<a class="btn btn" style="color: #df0024;" href="{% url 'customer' user.pk %}">
-				<i class="bi bi-pass-fill"></i>
+		<div class="col-lg-2">
+			<a class="btn btn" style="color: #2e6db4;" href="{% url 'chat' %}">
+				<i class="bi bi-send-fill"></i>
+			</a>
+		</div>
+        <div class="col-lg-2">
+			<a class="btn btn" style="color: #F3C300;" href="{% url 'index' %}">
+				<i class="bi bi-house-fill"></i>
 			</a>
 		</div>
 	</div>

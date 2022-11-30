@@ -3,27 +3,25 @@
 <!--content block-->
 {% block content %}
 
-{% include 'bagger/status.html' %}
+{% include 'admininterface/status.html' %}
 <br>
-<header>
-	<a href="{% url 'chat' %}"><i class="bi bi-send-fill"></i></a> 
-</header>
+
 
 <div class="row">
 	<div class="col-md-5">
-		<h5>CUSTOMERS:</h5>
+		<h5>USERS:</h5>
 		<hr>
 		<div class="card card-body">
 			<table class="table table-sm">
 				<tr>
 					<th></th>
-					<th>Customer</th>
-					<th>Orders</th>
+					<th>Users</th>
+					<!--<th>Orders</th>-->
 				</tr>
 				<!--Customer info-->
 				{% for customer in customers %}
 					<tr>
-						<td><a class="btn btn-sm btn-info" href="#">View</a></td>
+						<td><a class="btn btn-sm" style="background-color: #00AC9F;" href="#">View</a></td>
 						<td>{{customer.username}}</td>
 					</tr>
 				
@@ -55,7 +53,7 @@
 						<td>{{order.created_on}}</td>
 						<td>{{order.status}}</td>
 						<!--Buttons-->
-						<td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+						<td><a class="btn btn-sm" style="background-color: #00AC9F;" href="{% url 'update_order' order.id %}">Update</a></td>
 						<td><a class="btn btn-sm btn-danger" href="{% url 'cancel_order' order.id %}">Remove</a></td>
 					</tr>
 				
@@ -66,6 +64,20 @@
 	</div>
 
 </div>
-
+<footer>
+	<div class="row justify-content-md-center">
+		<div class="col-lg-2">
+			<a class="btn btn" style="color: #00AC9F;" href="{% url 'chat' %}"><i class="bi bi-send-fill"></i></a>
+		</div>
+		<div class="col-lg-2"> 
+			<a class="btn btn" style="color: #00AC9F;" href="http://127.0.0.1:8000/admin/"><i class="bi bi-person-fill"></i></a>
+		</div>
+		<div class="col-lg-2">
+			<a class="btn btn" style="color: #00AC9F;" href="{% url 'index' %}">
+				<i class="bi bi-house-fill"></i>
+			</a>
+		</div>
+	</div>
+</footer>
 <!--endblock content-->
 {% endblock content %}
