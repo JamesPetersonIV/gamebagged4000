@@ -14,6 +14,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 #
 from bagger.decorators import allowed_users
+#count 
+from django.db.models import Count
 
 #send to login url
 @login_required(login_url='account_login')
@@ -32,6 +34,7 @@ def home(request):
     #pending orders filter
     pending = orders.filter(status='Pending').count()
     #delieveries by driver
+    bagger = OrderPro.objects.all().filter(status='Delivered').annotate(orderpro_count=Count('bagger'))
     context = {
                 'orders':orders,
                 'customers':customers,
@@ -39,6 +42,7 @@ def home(request):
                 'total_orders' : total_orders,
                 'delievered' : delievered,
                 'pending' : pending,
+                'bagger':bagger,
             }
 
     return render(request, 'admininterface/dashboard.html', context)

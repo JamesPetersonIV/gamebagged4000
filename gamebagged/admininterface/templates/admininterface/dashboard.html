@@ -14,16 +14,12 @@
 		<div class="card card-body">
 			<table class="table table-sm">
 				<tr>
-					<th></th>
 					<th>Users</th>
-					<!--<th>Orders</th>-->
 				</tr>
-				<!--Customer info-->
+				<!--User info-->
 				{% for customer in customers %}
 					<tr>
-						<td><a class="btn btn-sm" style="background-color: #00AC9F;" href="#">View</a></td>
 						<td>{{customer.username}}</td>
-						<td></td>
 					</tr>
 				
 				{% endfor %}
@@ -31,6 +27,30 @@
 			</table>
 		</div>
 	</div>
+
+	<div class="col-md-5">
+		<h5>Baggers:</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Bagger</th>
+					<th>Deliveries Completed</th>
+					<!--<th>Orders</th>-->
+				</tr>
+				<!--Bagger info-->
+				{% for bags in bagger %}
+					<tr>
+						<td>{{bags.bagger}}</td>
+						<td>{{bags.orderpro_count}}</td>
+					</tr>
+				
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
 
 	<div class="col-md-7">
 		<h5>ORDERS</h5>
