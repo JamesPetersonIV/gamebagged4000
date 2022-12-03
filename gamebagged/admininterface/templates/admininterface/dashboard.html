@@ -27,11 +27,13 @@
 			<table class="table table-sm">
 				<tr>
 					<th>Users</th>
+					<th>User ID</th>
 				</tr>
 				<!--User info-->
 				{% for customer in customers %}
 					<tr>
 						<td>{{customer.username}}</td>
+						<td>{{customer.id}}</td>
 					</tr>
 				
 				{% endfor %}
@@ -46,7 +48,7 @@
 		<div class="card card-body">
 			<table class="table table-sm">
 				<tr>
-					<th>Bagger</th>
+					<th>Bagger ID</th>
 					<th>Deliveries Completed</th>
 					<!--<th>Orders</th>-->
 				</tr>
