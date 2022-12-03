@@ -35,6 +35,8 @@ def home(request):
     pending = orders.filter(status='Pending').count()
     #delieveries by driver
     bagger = OrderPro.objects.all().filter(status='Delivered').annotate(orderpro_count=Count('bagger'))
+    #search filter
+    
     context = {
                 'orders':orders,
                 'customers':customers,

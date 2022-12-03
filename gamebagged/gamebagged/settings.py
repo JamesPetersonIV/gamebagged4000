@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'accounts',
     'bagger',
     'admininterface',
-    
     #auth
     'allauth',
     'allauth.account',

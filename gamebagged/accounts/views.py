@@ -10,6 +10,8 @@ from django.core.mail import send_mail
 #
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+#
+from django.db.models import Q
 
 @login_required(login_url='account_login')
 def products(request):
@@ -145,12 +147,21 @@ class Phones(View):
         context = {'phones':phones}
         return render(request, 'accounts/mobilephones.html', context)
 
-class Phones(View):
+class PhonesSearch(View):
     def get(self, request, *args, **kwargs):
-        phones = Product.objects.filter(category__contains='Mobile Phones')
-        context = {'phones':phones}
-        return render(request, 'accounts/mobilephones.html', context)
+        query = self.request.GET.get("q")
 
+        phones = Product.objects.filter(
+            Q(name__icontains=query) |
+            Q(price__icontains=query) |
+            Q(description__icontains=query)
+        )
+
+        context = {
+            'phones': phones,
+        }
+
+        return render(request, 'accounts/mobilephones.html', context)
 
 class Accessories(View):
     def get(self, request, *args, **kwargs):
@@ -158,11 +169,42 @@ class Accessories(View):
         context = {'accs':accs}
         return render(request, 'accounts/accessories.html', context)
 
+class AccessoriesSearch(View):
+    def get(self, request, *args, **kwargs):
+        query = self.request.GET.get("q")
+
+        accs = Product.objects.filter(
+            Q(name__icontains=query) |
+            Q(price__icontains=query) |
+            Q(description__icontains=query)
+        )
+
+        context = {
+            'accs': accs,
+        }
+
+        return render(request, 'accounts/accessories.html', context)
 
 class Consoles(View):
     def get(self, request, *args, **kwargs):
         systems = Product.objects.filter(category__contains='Consoles')
         context = {'systems':systems}
+        return render(request, 'accounts/consoles.html', context)
+
+class ConsolesSearch(View):
+    def get(self, request, *args, **kwargs):
+        query = self.request.GET.get("q")
+
+        systems = Product.objects.filter(
+            Q(name__icontains=query) |
+            Q(price__icontains=query) |
+            Q(description__icontains=query)
+        )
+
+        context = {
+            'systems': systems,
+        }
+
         return render(request, 'accounts/consoles.html', context)
 
 
@@ -171,6 +213,23 @@ class VideoGames(View):
         vgs = Product.objects.filter(category__contains='Video Games')
         context = {'vgs':vgs}
         return render(request, 'accounts/videogames.html', context)
+        
+class VideoGamesSearch(View):
+    def get(self, request, *args, **kwargs):
+        query = self.request.GET.get("q")
+
+        vgs = Product.objects.filter(
+            Q(name__icontains=query) |
+            Q(price__icontains=query) |
+            Q(description__icontains=query)
+        )
+
+        context = {
+            'vgs': vgs,
+        }
+
+        return render(request, 'accounts/videogames.html', context)
+
 
 def getOrderIfOrderExistForCurrentCustomer(pk):
     try:

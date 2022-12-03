@@ -73,6 +73,7 @@ class OrderPro(models.Model):
         ('Pending', 'Pending'),
         ('Out for delivery', 'Out for delivery'),
         ('Delivered', 'Delivered'),
+        ('Unable To Complete Delivery', 'Unable To Complete Delivery'),
     )
     created_on = models.DateTimeField(auto_now_add=True, null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2, null=True)

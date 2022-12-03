@@ -4,12 +4,21 @@
 <!--content block-->
 {% block content %}
 
+<h1>Accessories</h1>
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 col-sm-12 text-center">
+        <form method="GET" action="{% url 'accs-search' %}">
+            <div class="md-form mt-0 active-cyan-2">
+                <input class="form-control" name="q" type="text" placeholder="Search Our Accessory Catalog" aria-label="Search" value="{{ request.GET.q }}">
+            </div>
+        </form>
+    </div>
+</div>
 
 <!--Each pages indivdual code-->
 <div class="container mb-5">
     <div class="pt-5">
         {% for acc in  accs %}
-        <h1>{{acc.category}}</h1>
         <div class="row mt-4">
             <div class="col-md-2 col-sm-12">
                 <img class="rounded" src="{{ acc.img.url }}" width="150" height="100"/>
