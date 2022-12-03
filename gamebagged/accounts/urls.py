@@ -15,10 +15,10 @@ urlpatterns = [
     path('cancel_order/<int:pk>/', views.cuscancelOrder, name='cancel_order'),
     #category lists
     path('category/accs/', Accessories.as_view(), name='accs' ),
-    path('category/accs/search/', ConsolesSearch.as_view(), name='accs-search'),
+    path('category/accs/search/', AccessoriesSearch.as_view(), name='accs-search'),
 
     path('category/phones/', Phones.as_view(), name='mps' ),
-    path('category/phones/search/', ConsolesSearch.as_view(), name='mps-search'),
+    path('category/phones/search/', PhonesSearch.as_view(), name='mps-search'),
 
     path('category/consoles/', Consoles.as_view(), name='cons' ),
     path('category/consoles/search/', ConsolesSearch.as_view(), name='gs-search'),

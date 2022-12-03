@@ -141,20 +141,21 @@ def cuscancelOrder(request, pk):
 
 
 #################################################################
-class Phones(View):
+class Phones(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         phones = Product.objects.filter(category__contains='Mobile Phones')
         context = {'phones':phones}
         return render(request, 'accounts/mobilephones.html', context)
 
-class PhonesSearch(View):
+class PhonesSearch(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         query = self.request.GET.get("q")
 
         phones = Product.objects.filter(
             Q(name__icontains=query) |
             Q(price__icontains=query) |
-            Q(description__icontains=query)
+            Q(description__icontains=query),
+            category__contains='Mobile Phones'
         )
 
         context = {
@@ -163,20 +164,21 @@ class PhonesSearch(View):
 
         return render(request, 'accounts/mobilephones.html', context)
 
-class Accessories(View):
+class Accessories(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         accs = Product.objects.filter(category__contains='Accessories')
         context = {'accs':accs}
         return render(request, 'accounts/accessories.html', context)
 
-class AccessoriesSearch(View):
+class AccessoriesSearch(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         query = self.request.GET.get("q")
 
         accs = Product.objects.filter(
             Q(name__icontains=query) |
             Q(price__icontains=query) |
-            Q(description__icontains=query)
+            Q(description__icontains=query),
+            category__contains='Accessories'
         )
 
         context = {
@@ -185,20 +187,21 @@ class AccessoriesSearch(View):
 
         return render(request, 'accounts/accessories.html', context)
 
-class Consoles(View):
+class Consoles(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         systems = Product.objects.filter(category__contains='Consoles')
         context = {'systems':systems}
         return render(request, 'accounts/consoles.html', context)
 
-class ConsolesSearch(View):
+class ConsolesSearch(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         query = self.request.GET.get("q")
 
         systems = Product.objects.filter(
             Q(name__icontains=query) |
             Q(price__icontains=query) |
-            Q(description__icontains=query)
+            Q(description__icontains=query),
+            category__contains='Consoles'
         )
 
         context = {
@@ -208,20 +211,21 @@ class ConsolesSearch(View):
         return render(request, 'accounts/consoles.html', context)
 
 
-class VideoGames(View):
+class VideoGames(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         vgs = Product.objects.filter(category__contains='Video Games')
         context = {'vgs':vgs}
         return render(request, 'accounts/videogames.html', context)
         
-class VideoGamesSearch(View):
+class VideoGamesSearch(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         query = self.request.GET.get("q")
 
         vgs = Product.objects.filter(
             Q(name__icontains=query) |
             Q(price__icontains=query) |
-            Q(description__icontains=query)
+            Q(description__icontains=query),
+            category__contains='Video Games'
         )
 
         context = {
