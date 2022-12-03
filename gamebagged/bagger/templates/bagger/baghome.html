@@ -69,7 +69,8 @@
                         <td>{{order.bagger}}</td>
 						<td>{{order.status}}</td>
 						<!--Buttons-->
-						<td><a class="btn btn-sm btn-info" href="{% url 'baggeru_order' order.id %}">Update</a></td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'baggeru_order' order.id %}">Update</a></td>	
+						<td><a class="btn btn-sm btn-danger" href="{% url 'cancel_order' order.id %}" class="btn btn-sm btn-danger">Cancel</a></td>
 					</tr>
 				
 				{% endfor %}
