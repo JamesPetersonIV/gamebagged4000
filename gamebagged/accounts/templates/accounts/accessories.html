@@ -4,7 +4,12 @@
 <!--content block-->
 {% block content %}
 
-<h1>Accessories</h1>
+<h1>
+    Accessories
+    <a class="btn btn" style="color: #2e6db4;" href="{% url 'index' %}">
+        <i class="bi bi-house-fill"></i>
+    </a>
+</h1>
 <div class="row justify-content-center mt-5">
     <div class="col-md-8 col-sm-12 text-center">
         <form method="GET" action="{% url 'accs-search' %}">
