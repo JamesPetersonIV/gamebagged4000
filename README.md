@@ -1,6 +1,6 @@
 # Gamebagged
 
-![Game-Bagged-Spring2022 (1).docx](https://github.com/JamesPetersonIV/gamebagged4000/files/10158094/Game-Bagged-Spring2022.1.docx)
+[Game-Bagged-Spring2022 (1).docx](https://github.com/JamesPetersonIV/gamebagged4000/files/10158094/Game-Bagged-Spring2022.1.docx)
 
 # Banner & Logo By: Nehemie Augustin
 
