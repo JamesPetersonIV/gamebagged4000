@@ -9,5 +9,5 @@
 # ERD By: Kamari Williams & Brenden Driver
 ![GameBagged(2)(12)(10)(1)(2)(1) drawio](https://user-images.githubusercontent.com/61022550/205752345-0340d26a-83c2-475f-8e51-f266c874d38a.png)
 
-#Figma
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F8dcLdtVSjzq7dmrbqSMPLu%2FGame-Bagged-Prototype%3Ftype%3Ddesign%26node-id%3D903%253A6644%26mode%3Ddesign%26t%3DmHOBLpe2vSl9FBWM-1" allowfullscreen></iframe>
+#Figma By:James Peterson IV
+https://www.figma.com/file/8dcLdtVSjzq7dmrbqSMPLu/Game-Bagged-Prototype?type=design&node-id=903%3A6644&mode=design&t=mHOBLpe2vSl9FBWM-1
