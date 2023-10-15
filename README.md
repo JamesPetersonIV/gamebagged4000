@@ -8,3 +8,6 @@
 
 # ERD By: Kamari Williams & Brenden Driver
 ![GameBagged(2)(12)(10)(1)(2)(1) drawio](https://user-images.githubusercontent.com/61022550/205752345-0340d26a-83c2-475f-8e51-f266c874d38a.png)
+
+#Figma By:James Peterson IV
+https://www.figma.com/file/8dcLdtVSjzq7dmrbqSMPLu/Game-Bagged-Prototype?type=design&node-id=903%3A6644&mode=design&t=mHOBLpe2vSl9FBWM-1
