@@ -235,6 +235,7 @@ class VideoGamesSearch(LoginRequiredMixin,View):
         return render(request, 'accounts/videogames.html', context)
 
 
+
 def getOrderIfOrderExistForCurrentCustomer(pk):
     try:
         return OrderPro.objects.get(pk=pk)
