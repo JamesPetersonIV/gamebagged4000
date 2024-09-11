@@ -1,8 +1,8 @@
 ![Screenshot 2024-09-11 034442]()# Gamebagged
 
 
-# Customer
-    Customer can search for items!
+# Working Demo Demonstration
+    Click below
     
 [![IMAGE ALT TEXT HERE](https://github.com/user-attachments/assets/cfb66034-61cc-4e6d-919d-5d39f6d2767d)](https://youtube.com/playlist?list=PLiD4rZ-j4-tVGM854rCiR8pOuyQVmfSef&si=_TuBZTBsCMHWUgwT)
 
