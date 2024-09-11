@@ -1,4 +1,4 @@
-![Screenshot 2024-09-11 034442]()# Gamebagged
+# Gamebagged
 
 
 # Working Demo Demonstration
