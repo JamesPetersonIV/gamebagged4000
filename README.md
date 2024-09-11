@@ -1,7 +1,7 @@
 # Gamebagged
 
 # Functions
-  #Customer
+  # Customer
     # Customer can search for items
 [![IMAGE ALT TEXT HERE](https://github.com/user-attachments/assets/905cc83a-feef-4826-81d2-66124fa70ae3)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://youtu.be/2c2770pFjNg))
 
