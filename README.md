@@ -1,7 +1,8 @@
 # Gamebagged
 
 #Functions
-![some](https://www.youtube.com/watch?v=Fcg6h5c8FCc)
+[![IMAGE ALT TEXT HERE](https://github.com/user-attachments/assets/905cc83a-feef-4826-81d2-66124fa70ae3)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://youtu.be/2c2770pFjNg))
+
 [Game-Bagged-Spring2022 (1).docx](https://github.com/JamesPetersonIV/gamebagged4000/files/10158094/Game-Bagged-Spring2022.1.docx)
 
 # Banner & Logo By: Nehemie Augustin
