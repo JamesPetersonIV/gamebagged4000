@@ -1,9 +1,11 @@
-# Gamebagged
+![Screenshot 2024-09-11 034442]()# Gamebagged
 
 
 # Customer
-    Customer can search for items
-[![IMAGE ALT TEXT HERE](https://github.com/user-attachments/assets/905cc83a-feef-4826-81d2-66124fa70ae3)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://youtu.be/2c2770pFjNg))
+    Customer can search for items!
+    
+[![IMAGE ALT TEXT HERE](https://github.com/user-attachments/assets/cfb66034-61cc-4e6d-919d-5d39f6d2767d)](https://youtube.com/playlist?list=PLiD4rZ-j4-tVGM854rCiR8pOuyQVmfSef&si=_TuBZTBsCMHWUgwT)
+
 
 [Game-Bagged-Spring2022 (1).docx](https://github.com/JamesPetersonIV/gamebagged4000/files/10158094/Game-Bagged-Spring2022.1.docx)
 
