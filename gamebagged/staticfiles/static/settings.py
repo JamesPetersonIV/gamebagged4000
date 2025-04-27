@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     "crispy_forms",
     "crispy_bootstrap5",
+
+    #whitenoise
+    'whitenoise.runserver_nostatic'
 ]
 
 SITE_ID = 1
@@ -63,6 +66,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'gamebagged.urls'
@@ -170,5 +175,3 @@ ACCOUNT_EMAIL_REQUIRED = True
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CSRF_TRUSTED_ORIGINS = ['http://gamebagged4000.vercel.app']
-
-X_FRAME_OPTIONS = 'SAMEORIGIN'
