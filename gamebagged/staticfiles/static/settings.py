@@ -103,15 +103,11 @@ ASGI_APPLICATION = 'gamebagged.asgi.application'
 #    }
 #}
 
-if os.getenv('VERCEL') == '1':
-    DB_PATH = os.path.join('/tmp', 'vercel_demo.sqlite3')
-else:
-    DB_PATH = os.path.join(BASE_DIR, 'db.sqlite3')
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': DB_PATH,
+        'NAME': '/tmp/db.sqlite3',
     }
 }
 
