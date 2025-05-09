@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
+import tempfile
 
 from pathlib import Path
 
@@ -111,7 +112,7 @@ else:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': DB_PATH,
+        'NAME': os.path.join(tempfile.gettempdir(), 'demo.sqlite3'),
     }
 }
 
