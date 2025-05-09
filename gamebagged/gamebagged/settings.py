@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
-import tempfile
 
 from pathlib import Path
 
@@ -97,24 +96,13 @@ ASGI_APPLICATION = 'gamebagged.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-#This checks if you’re running on Vercel (by looking for a built-in VERCEL environment variable) and switches paths accordingly.
-if os.getenv('VERCEL') == '1':
-    DB_PATH = os.path.join('/tmp', 'vercel_demo.sqlite3')
-else:
-    DB_PATH = os.path.join(BASE_DIR, 'db.sqlite3')
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(tempfile.gettempdir(), 'demo.sqlite3'),
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
@@ -189,3 +177,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #Allow your site to be embedded anywhere
 X_FRAME_OPTIONS = 'ALLOWALL'
+
