@@ -19,7 +19,7 @@ from django.db.models import Count, Sum
 
 #send to login url
 @login_required(login_url='account_login')
-@allowed_users(allowed_roles=['admins'])
+@allowed_users(allowed_roles=['admins', 'adminsDemo'])
 def home(request):
     #all orders query
     orders = OrderPro.objects.all()
