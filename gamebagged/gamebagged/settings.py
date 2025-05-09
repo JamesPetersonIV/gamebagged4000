@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-pik__(a#-28@4p-gy#q(zbe8bmg1t%sw)#-#4pds)5x1qcvee4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['gamebagged4000.vercel.app', 'gamebagged4000-exjvg33uq-james-peterson-ivs-projects.vercel.app', '127.0.0.1', 'https://gamebagged4000-git-master-james-peterson-ivs-projects.vercel.app']
+ALLOWED_HOSTS = ['gamebagged4000.vercel.app', 'gamebagged4000-exjvg33uq-james-peterson-ivs-projects.vercel.app', '127.0.0.1', 'gamebagged4000-git-master-james-peterson-ivs-projects.vercel.app']
 
 
 # Application definition
