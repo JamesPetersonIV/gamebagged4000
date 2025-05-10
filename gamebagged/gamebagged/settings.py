@@ -190,7 +190,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #Allow your site to be embedded anywhere
 X_FRAME_OPTIONS = 'ALLOWALL'
 
-CSRF_TRUSTED_ORIGINS=['https://gamebagged4000-production.up.railway.app', 'https://http://127.0.0.1:8000', 'https://jp4web-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://gamebagged4000-production.up.railway.app', 'https://http://127.0.0.1:8000', 'https://jp4web-production.up.railway.app', 'https://*.railway.app']
 
 CSRF_COOKIE_SAMESITE = 'None'  # or 'None' if cross-domain
 CSRF_COOKIE_SECURE = True     # required for 'None'
