@@ -1,0 +1,1 @@
+web: gunicorn gamebagged.wsgi --log-file -
